@@ -34,11 +34,13 @@
         </li>
       </ul>
     </div>
+    <shopcart></shopcart>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll';
+  import shopcart from '../shopCart/shopCart';
   const ERR_OK = 0;
 
     export default {
@@ -86,7 +88,6 @@
           }
           let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
           let el = foodList[index];
-          console.log(index);
           this.foodsWrapper.scrollToElement(el, 300);
         },
         _initScroll: function () {
@@ -106,6 +107,9 @@
               this.listHeight.push(height);
             }
         }
+      },
+      components: {
+        shopcart
       }
     };
 </script>

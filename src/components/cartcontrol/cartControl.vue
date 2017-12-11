@@ -1,7 +1,11 @@
 <template>
   <div class="cartcontrol">
     <transition name="move">
-      <div class="cart-decrease icon-remove_circle_outline" v-show="food.count" @click="decreaseCart($event)"></div>
+      <div class="cart-decrease " v-show="food.count" @click="decreaseCart($event)">
+        <transition name="move">
+        <i class="icon-remove_circle_outline"></i>
+        </transition>
+      </div>
     </transition>
     <div class="cart-count" v-show="food.count>0">{{food.count}}</div>
     <div class="cart-add icon-add_circle" @click="addCart($event)"></div>
@@ -43,12 +47,19 @@
 <style lang="stylus" ref="stylesheet/stylus">
   .cartcontrol
     font-size: 0px
-    .cart-decrease, .cart-add
+    .cart-decrease
       display: inline-block
       padding: 6px
       line-height: 24px
       font-size: 24px
       color: rgb(0, 160, 220)
+      opacity: 1
+      transform: rotate3D(180deg)
+      &.move-enter, .move-leave-to
+        opacity: 0
+        transform: translateX(50px)
+      &.move-enter-active
+        transition: all .3s ease-in-out
     .cart-count
       display: inline-block
       vertical-align: top
@@ -60,5 +71,9 @@
       color: rgb(147, 153, 159)
     .cart-add
       display: inline-block
+      padding: 6px
+      line-height: 24px
+      font-size: 24px
+      color: rgb(0, 160, 220)
 
 </style>

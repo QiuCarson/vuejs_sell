@@ -176,7 +176,7 @@
           font-size: 12px
 
     .foods-wrapper
-      flex: 1px
+      flex: 1
       .title
         padding-left: 14px
         height: 26px
